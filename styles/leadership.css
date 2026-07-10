@@ -1,0 +1,308 @@
+/* ============================================================
+   Strategic Member identity layer.
+
+   Inherits tokens + base + sections from the institutional canon
+   (`company/website/styles/*`). This file generalises the founder
+   identity layer (`personal/bajwa/styles/founder.css`) for the
+   Strategic Member surfaces (amjad.auraplatform.org,
+   iffat.auraplatform.org): a typographic masthead, the identity-arc
+   grammar, the literary register for professional perspective, and
+   the accent-rule perspective block.
+
+   Visual doctrine
+   ---------------
+   • Calm before composition. Whitespace is the primary device.
+   • Serif italic carries the reflective, professional voice
+     (Source Serif 4) — never display weight, never set in
+     uppercase.
+   • Mono is used only for the eyebrow labels that organize the
+     page (e.g. "Strategic Member · Aura Platform LLC"), echoing
+     the institutional grammar.
+   • The accent (--accent) appears sparingly: the left-rule on the
+     doctrine and perspective blocks, the underline under the
+     active nav link.
+   • No skill bars, no percentages, no strengths cards, no
+     resume-download CTA, no employment chronology. The member is
+     institutional representation, not specification.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Mobile overflow safety net — inherited doctrine from the
+   founder layer. Clamp the body to viewport width and force long
+   words to break, on every page. A pure safety net — it never
+   triggers on well-sized text.
+   ------------------------------------------------------------ */
+html, body { overflow-x: clip; }
+
+h1, h2, h3, h4,
+.hero__title, .hero__lead,
+.flagship-section__title, .flagship-section__lead,
+.leader-mast__name, .leader-mast__roles, .leader-mast__statement,
+.page-header__title, .page-header__lead,
+.perspective p, .doctrine, p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* ------------------------------------------------------------
+   Literary register — applied as a register class on a section
+   so the reflective voice can opt in without leaking to lists,
+   chips, or footers.
+   ------------------------------------------------------------ */
+.register-literary {
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+
+.register-literary .lead,
+.register-literary p {
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+@media (min-width: 1024px) {
+  .register-literary .lead,
+  .register-literary p {
+    font-size: 21px;
+  }
+}
+
+/* ------------------------------------------------------------
+   Strategic Member masthead. Identity block — eyebrow + name +
+   serif-italic role line + statement. Typographic-first: the
+   masthead carries the identity without a portrait.
+   ------------------------------------------------------------ */
+.leader-mast {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s5);
+  padding-top: 0;
+  max-width: 880px;
+}
+
+.leader-mast__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.leader-mast__name {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: clamp(44px, 8vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.leader-mast__roles {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.4;
+  color: var(--text-primary);
+  opacity: 0.86;
+  margin: 0;
+  max-width: 34ch;
+}
+
+.leader-mast__statement {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--type-lead);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  opacity: 0.78;
+  max-width: 60ch;
+  margin: var(--s4) 0 0 0;
+}
+
+/* ------------------------------------------------------------
+   Identity arc — the four-stage horizontal line under the
+   masthead that compresses the professional trajectory into a
+   single trace ending at Aura Platform LLC.
+   ------------------------------------------------------------ */
+.identity-arc {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s4);
+  margin-top: var(--s10);
+  padding-top: var(--s6);
+  border-top: 1px solid var(--border);
+}
+
+.identity-arc__stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.identity-arc__index {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.identity-arc__title {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.identity-arc__caption {
+  font-family: var(--font-body);
+  font-size: var(--type-body-small);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .identity-arc {
+    grid-template-columns: 1fr;
+    gap: var(--s5);
+  }
+}
+
+/* ------------------------------------------------------------
+   Nav — the institutional nav from base.css already covers the
+   structural grammar. The leadership layer marks the active page
+   with the accent underline.
+   ------------------------------------------------------------ */
+.nav__links a[aria-current="page"] {
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* ------------------------------------------------------------
+   Perspective block — quiet paragraph block carrying the
+   member's professional perspective. Set in literary serif with
+   the institutional accent rule on the left; the same grammar as
+   the founder layer's author-posture block.
+   ------------------------------------------------------------ */
+.perspective {
+  border-left: 2px solid var(--accent);
+  padding: var(--s4) 0 var(--s4) var(--s6);
+  margin: var(--s6) 0 0 0;
+  max-width: 64ch;
+}
+
+.perspective__label {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s3) 0;
+}
+
+.perspective p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  opacity: 0.92;
+  margin: 0 0 var(--s3) 0;
+}
+
+.perspective p:last-child { margin-bottom: 0; }
+
+/* ------------------------------------------------------------
+   Page header — shared page-level title grammar for any
+   secondary page on a Strategic Member surface.
+   ------------------------------------------------------------ */
+.page-header {
+  padding-top: var(--s16);
+  padding-bottom: var(--s10);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--s10);
+}
+
+.page-header__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s3) 0;
+}
+
+.page-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 6vw, 64px);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin: 0 0 var(--s4) 0;
+  max-width: 22ch;
+  overflow-wrap: break-word;
+}
+
+.page-header__lead {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  opacity: 0.84;
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* ------------------------------------------------------------
+   Booking types — the conversation doorway list, mirroring the
+   founder /book grammar: one external scheduler on Aura Meetings,
+   no embedded widget.
+   ------------------------------------------------------------ */
+.book__lead-in {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  color: var(--text-secondary);
+  margin: 0 0 var(--s5) 0;
+}
+
+.book__types {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s3);
+  max-width: 640px;
+}
+
+@media (min-width: 640px) {
+  .book__types { grid-template-columns: 1fr 1fr; gap: var(--s3) var(--s8); }
+}
+
+.book__types li {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  color: var(--text-primary);
+  position: relative;
+  padding-left: var(--s5);
+}
+
+.book__types li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 8px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.book__cta-row { margin-top: var(--s10); }
