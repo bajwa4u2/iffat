@@ -92,7 +92,7 @@ h1, h2, h3, h4,
 .leader-mast__name {
   font-family: var(--font-display);
   font-weight: var(--weight-semibold);
-  font-size: clamp(44px, 8vw, 84px);
+  font-size: clamp(32px, 4.5vw, 48px);
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -239,14 +239,25 @@ h1, h2, h3, h4,
 
 .page-header__title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 6vw, 64px);
+  font-size: clamp(24px, 3.6vw, 38px);
   font-weight: var(--weight-semibold);
-  letter-spacing: -0.015em;
-  line-height: 1.05;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
   color: var(--text-primary);
   margin: 0 0 var(--s4) 0;
   max-width: 22ch;
   overflow-wrap: break-word;
+}
+
+/* Section pacing — calmed uniformly (hero excluded); single-
+   statement sections go tighter still. */
+.section:not(.section--hero) {
+  padding-top: var(--s16);
+  padding-bottom: var(--s16);
+}
+.section--tight {
+  padding-top: var(--s10);
+  padding-bottom: var(--s10);
 }
 
 .page-header__lead {
