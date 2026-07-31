@@ -68,9 +68,66 @@ h1, h2, h3, h4,
 }
 
 /* ------------------------------------------------------------
+   Strategic Member hero. The portrait sits to the right of the
+   masthead on desktop; on mobile it stacks above. Restrained
+   sizing — mirrors the founder layer's portrait treatment
+   (`personal/bajwa/styles/founder.css`) so the two read as one
+   family.
+   ------------------------------------------------------------ */
+.leader-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s6);
+  padding-top: 0;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .leader-hero {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--s10);
+  }
+}
+
+@media (min-width: 1024px) {
+  .leader-hero {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: var(--s12);
+  }
+}
+
+.leader-portrait-frame {
+  width: 100%;
+  max-width: 220px;
+  margin: 0;
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .leader-portrait-frame {
+    max-width: 100%;
+    order: 0;
+    position: sticky;
+    top: var(--s10);
+  }
+}
+
+.leader-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  filter: saturate(0.92) contrast(0.98);
+}
+
+/* ------------------------------------------------------------
    Strategic Member masthead. Identity block — eyebrow + name +
-   serif-italic role line + statement. Typographic-first: the
-   masthead carries the identity without a portrait.
+   serif-italic role line + statement.
    ------------------------------------------------------------ */
 .leader-mast {
   display: grid;
