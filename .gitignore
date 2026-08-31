@@ -3,6 +3,8 @@
 Thumbs.db
 Desktop.ini
 *.swp
+.wrangler/
+dist/
 
 # Editors
 .vscode/
