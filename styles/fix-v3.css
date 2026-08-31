@@ -24,6 +24,7 @@
     mask-image: none !important;
     -webkit-mask-image: none !important;
     mask: none !important;
+    clip-path: inset(0 0 12% 0) !important;
     opacity: 1 !important;
   }
 }
@@ -46,6 +47,7 @@
     mask-image: none !important;
     -webkit-mask-image: none !important;
     mask: none !important;
+    clip-path: inset(0 0 12% 0) !important;
     opacity: 1 !important;
   }
 }
