@@ -35,9 +35,9 @@ TLS provisions automatically on the major hosts once the CNAME validates.
    This meeting type exists in Aura Meetings (institution `aura-platform-llc`,
    slug `introduction-discussion`). Confirm it resolves before DNS cutover.
 
-2. **Leadership hub live.** The page links to
-   `https://company.auraplatform.org/leadership` — deploy the transformed company
-   site first (or simultaneously).
+2. **Company home live.** The page links to the canonical company home at
+   `https://company.auraplatform.org/`; product discovery is handled by the current
+   company home and its product routes.
 
 ## Verification (after DNS propagates)
 
@@ -59,11 +59,9 @@ current page — they work whether the directory is mounted at `/` (production) 
 a subpath (local preview). All cross-site links (company, founder, sibling Strategic
 Member, products) are absolute URLs.
 
-The OG/social image is the institutional card (`assets/social/og-default.png`,
-identical to the company card) — the surface represents the institution, not a
-personal brand. If a portrait or personalised card is supplied later, replace the
-file and the OG meta tags stay unchanged (same path) or update them if the filename
-changes.
+The OG/social image is the verified estate card at
+`assets/social/og-default.png`; the metadata identifies Iffat as the person
+represented by this estate.
 
 The source profile PDF (`iffat/iffat.pdf`) sits **outside** the web root by design.
 Do not move it into `iffat/website/` — it is reference material, not published
