@@ -1,5 +1,9 @@
 @import url("fix-v2.css");
 
+.member-hero::after {
+  background: linear-gradient(90deg, #0e1326 0%, #0e1326e8 37%, #0e132633 74%, #0e1326 100%) !important;
+}
+
 /* Keep the verified portrait legible as a portrait, not as a cropped poster. */
 @media (min-width: 801px) {
   .member-hero .leader-portrait-frame {
